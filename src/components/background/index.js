@@ -7,6 +7,7 @@ class Background extends Component {
   componentDidMount() {
     animBackground.start();
     animBackground.addIcosahedron();
+    animBackground.addIcosahedron();
   }
 
   render() {

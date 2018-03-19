@@ -8,10 +8,10 @@ class Background {
       new WHS.SceneModule(), // Create a new THREE.Scene and set it to app.
     
       new WHS.DefineModule('camera', new WHS.PerspectiveCamera({ // Apply a camera.
-        position: new THREE.Vector3(0, 0, 100)
+        position: new THREE.Vector3(0, 0, 10)
       })),
     
-      new WHS.RenderingModule({bgColor: 0x000000}), // Apply THREE.WebGLRenderer
+      new WHS.RenderingModule({bgColor: 0xFFFFFF}), // Apply THREE.WebGLRenderer
     ]);
 
     this.shapes = [];
@@ -45,7 +45,7 @@ class Background {
     new WHS.Loop(() => {
       for (let i = 0; i < shapes.length; i++) {
         if (shapes[i].rotation) {
-          shapes[i].rotation.y += 0.02;
+          shapes[i].rotation.y += (Math.floor((Math.random() * .06)) + 0.02);
           shapes[i].rotation.x += 0.02;
         }
       }
@@ -55,18 +55,20 @@ class Background {
   addIcosahedron() {
     const icosahedron = new WHS.Tetrahedron({
       geometry: {
-        radius: 10,
+        radius: 5,
         detail: 1
       },
     
       material: new THREE.MeshLambertMaterial({
         transparent: true,
         opacity: 0.8,
-        color: 0xFFFFFF,
+        color: 0x0B2027,
       }),
 
-      position: [0, 0, 0]
+      position: [Math.floor(Math.random() * 5), 0, 0]
     })
+
+    console.log(-1 * (window.innerWidth/2));
 
     icosahedron.addTo(this.app);
 
