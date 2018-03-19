@@ -8,11 +8,10 @@ class Background {
       new WHS.SceneModule(), // Create a new THREE.Scene and set it to app.
     
       new WHS.DefineModule('camera', new WHS.PerspectiveCamera({ // Apply a camera.
-        position: new THREE.Vector3(0, 0, 5)
+        position: new THREE.Vector3(0, 0, 100)
       })),
     
-      new WHS.RenderingModule({bgColor: 0x162129}), // Apply THREE.WebGLRenderer
-      new WHS.ResizeModule() // Make it resizable.
+      new WHS.RenderingModule({bgColor: 0x000000}), // Apply THREE.WebGLRenderer
     ]);
 
     this.shapes = [];
@@ -20,16 +19,21 @@ class Background {
 
   start() {
     //this.app.manager.get('camera').native.lookAt({x: 0, y: 0, z: 0});
-    // lights
 
+    window.addEventListener('resize', () => {
+      this.app.stop();
+      this.app.start();
+    })
+
+    // lights
     new WHS.AmbientLight({
-      color: 0xFF0000,
-      intensity: 0.1
+      color: 0xFFFFFF,
+      intensity: 0.3
     }).addTo(this.app);
 
     new WHS.DirectionalLight({
       color: 0xFFFFFF,
-      intensity: 0.3,
+      intensity: 1.0,
     
       position: [10, 20, 10]
     }).addTo(this.app);
@@ -49,13 +53,15 @@ class Background {
   }
 
   addIcosahedron() {
-    const icosahedron = new WHS.Dodecahedron({
+    const icosahedron = new WHS.Tetrahedron({
       geometry: {
-        radius: 2,
+        radius: 10,
         detail: 1
       },
     
       material: new THREE.MeshLambertMaterial({
+        transparent: true,
+        opacity: 0.8,
         color: 0xFFFFFF,
       }),
 

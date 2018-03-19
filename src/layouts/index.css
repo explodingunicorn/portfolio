@@ -629,10 +629,15 @@ pre tt:after {
 }
 
 .whs-app {
-  bottom: 0;
+  height: 100%;
   left: 0;
-  position: fixed !important;
-  right: 0;
+  width: 100%;
   top: 0;
+  position: fixed !important;
   z-index: 1;
+}
+
+.whs-app canvas {
+  height: 100% !important;
+  width: 100% !important;
 }
