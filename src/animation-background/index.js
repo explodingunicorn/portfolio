@@ -3,8 +3,13 @@ import * as THREE from 'three';
 
 class Background {
   constructor() {
+    this.app = null;
+  }
+
+  start() {
+    //this.app.manager.get('camera').native.lookAt({x: 0, y: 0, z: 0});
     this.app = new WHS.App([
-      new WHS.ElementModule(), // Apply to DOM.
+      new WHS.ElementModule(document.getElementById('background')), // Apply to DOM.
       new WHS.SceneModule(), // Create a new THREE.Scene and set it to app.
     
       new WHS.DefineModule('camera', new WHS.PerspectiveCamera({ // Apply a camera.
@@ -12,13 +17,10 @@ class Background {
       })),
     
       new WHS.RenderingModule({bgColor: 0xFFFFFF}), // Apply THREE.WebGLRenderer
+      new WHS.ResizeModule() // Make it resizable.
     ]);
 
     this.shapes = [];
-  }
-
-  start() {
-    //this.app.manager.get('camera').native.lookAt({x: 0, y: 0, z: 0});
 
     window.addEventListener('resize', () => {
       this.app.stop();
@@ -45,15 +47,14 @@ class Background {
     new WHS.Loop(() => {
       for (let i = 0; i < shapes.length; i++) {
         if (shapes[i].rotation) {
-          shapes[i].rotation.y += (Math.floor((Math.random() * .06)) + 0.02);
-          shapes[i].rotation.x += 0.02;
+          shapes[i].rotation.y += 0.002;
         }
       }
     }).start(this.app);
   }
 
   addIcosahedron() {
-    const icosahedron = new WHS.Tetrahedron({
+    const icosahedron = new WHS.Icosahedron({
       geometry: {
         radius: 5,
         detail: 1
@@ -65,7 +66,7 @@ class Background {
         color: 0x0B2027,
       }),
 
-      position: [Math.floor(Math.random() * 5), 0, 0]
+      position: [0, 0, 0]
     })
 
     console.log(-1 * (window.innerWidth/2));

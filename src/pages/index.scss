@@ -1,0 +1,16 @@
+.home {
+    height: 100%;
+}
+
+.hero {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    height: 85%;
+
+    h1 {
+        z-index: 1;
+    }
+}
