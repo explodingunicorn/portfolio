@@ -1,16 +1,22 @@
-.home {
-    height: 100%;
-}
+@import '../styles/colors';
+
 
 .hero {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    position: relative;
-
-    height: 85%;
+    background-color: $black;
+    height: 600px;
+    padding: 50px 0px;
 
     h1 {
+        color: white;
         z-index: 1;
+    }
+}
+
+
+.section {
+    padding: 50px 0;
+
+    &.work {
+        background-color: $white;
     }
 }

@@ -1,0 +1,18 @@
+@import '../../styles/colors';
+
+.excerpt {
+  border-bottom: 1px solid $light-gray;
+  padding: 70px 0;
+
+  p {
+    margin-bottom: 40px
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

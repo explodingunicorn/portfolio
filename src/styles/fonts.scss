@@ -1,14 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans+Condensed:300,400,700|IBM+Plex+Serif');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans+Condensed:300,400,600,700|IBM+Plex+Serif');
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  color: $black;
+}
 
 h1 {
-  font-family: 'IBM Plex Sans Condensed' !important;
-  color: $mint-green;
+  font-family: 'IBM Plex Sans Condensed', sans-serif !important;
+  font-size: 5em;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-  &.large {
-    font-size: 4em;
-  }
+h2 {
+  font-family: 'IBM Plex Sans Condensed', sans-serif !important;
+  font-weight: 600;
+  font-size: 3.5em;
+  margin-bottom: .3em;
+  text-shadow: 2px 2px $light-gray;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 p {
-  font-family: 'IBM Plex Serif';
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+}
+
+.header-decoration {
+  border-bottom: 1px solid $black;
+  position: relative;
+  width: 100%;
+
+  .deco {
+    background-color: $black;
+    height: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 33%;
+  }
 }

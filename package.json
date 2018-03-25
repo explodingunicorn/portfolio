@@ -8,6 +8,8 @@
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-sass": "^1.0.23",
+    "gatsby-source-filesystem": "^1.5.27",
+    "gatsby-transformer-remark": "^1.7.37",
     "react-helmet": "^5.2.0",
     "react-whs": "^0.1.8",
     "three": "^0.91.0",
