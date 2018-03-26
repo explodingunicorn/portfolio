@@ -10,13 +10,13 @@ import './index.scss';
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="C.Robinson - UI"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Corey Robinson is a web developer specializing in front-end and UI development.' },
+        { name: 'keywords', content: 'Front-end, engineering, developer, web developer, Corey Robinson, software, react, vue, angular, UX, Visual Design' },
       ]}
     />
-    {/* <Header /> */}
+    <Header />
     <div className="main-template-container">
       {children()}
     </div>

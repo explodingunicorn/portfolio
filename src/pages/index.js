@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link';
+import Background from '../components/background';
 import Excerpt from '../components/excerpt';
 import './index.scss';
 
@@ -16,9 +17,11 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
   return (
     <div className="home">
       <div className="hero">
+        <Background/>
         <div className="main-container">
           <div className="col-6">
             <h1 className="large">Corey Robinson</h1>
+            <h3>UI Developer</h3>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import './post.scss';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -6,14 +7,26 @@ export default function Template({
   const { markdownRemark } = data; // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark;
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+    <div className="post-container">
+      <div className="hero">
+        <div className="main-container">
+          <div className="col-6">
+            <h1>{frontmatter.title}</h1>
+          </div>
+        </div>
+      </div>
+      <div className="post-content">
+        <div className="main-container">
+          <div className="col-2 date">
+            <div className="deco"/>
+            <p><b>{frontmatter.date}</b></p>
+          </div>
+          <div className="col-4">
+            <div
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
