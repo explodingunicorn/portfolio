@@ -31,7 +31,7 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
             <h2>Projects</h2>
             <div className="header-decoration"><div className="deco"/></div>
           </div>
-          <div className="col-4">
+          <div className="col-4 work-showcase">
             {Work}
           </div>
         </div>

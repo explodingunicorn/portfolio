@@ -11,11 +11,11 @@ const Header = () => (
           home
           <div className="deco"/>
         </Link>
-        <Link>
+        <Link to="/projects">
           projects
           <div className="deco"/>
         </Link>
-        <Link>
+        <Link to="/writing">
           writing
           <div className="deco"/>
         </Link>

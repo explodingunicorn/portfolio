@@ -24,6 +24,12 @@
         }
     }
 
+    .work-showcase {
+      .excerpt:first-child {
+        padding-top: 0;
+      }
+    }
+
 
     .section {
         padding: 50px 0;
