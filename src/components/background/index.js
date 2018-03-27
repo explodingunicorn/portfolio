@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import d3background from './d3';
+import './background.scss';
 
 const background = new d3background();
 
