@@ -34,12 +34,14 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
             </p>
           </Column>
           <Column large={6}>
-            <Button color="black" full>
+            <Button color="black" full hyperLink="mailto:c7o7r7e7y@gmail.com">
               Contact Me
             </Button>
           </Column>
           <Column large={6}>
-            <Button full>Read the Resume</Button>
+            <Button full hyperLink="files/Resume.pdf">
+              Read the Resume
+            </Button>
           </Column>
         </Row>
         <Row>

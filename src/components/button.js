@@ -3,7 +3,7 @@ import { css } from 'emotion'
 import colors from '../styles/colors'
 import Link from 'gatsby-link'
 
-const Button = ({ ...props }) => {
+const Button = props => {
   const buttonClass = css({
     backgroundColor: props.color === 'black' ? colors.black : 'transparent',
     border: `1px solid ${colors.black}`,
@@ -30,6 +30,12 @@ const Button = ({ ...props }) => {
 
   if (props.link) {
     return <Link to={props.link}>{button}</Link>
+  } else if (props.hyperLink) {
+    return (
+      <a href={props.hyperLink} target="_blank">
+        {button}
+      </a>
+    )
   }
 
   return button

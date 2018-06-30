@@ -30,11 +30,6 @@ export default function Template({
       </div>
       <Container width={55}>
         <Row>
-          <Column large={4}>
-            <p style={{ margin: '0' }}>
-              <b>{frontmatter.date}</b>
-            </p>
-          </Column>
           <Column large={8}>
             {frontmatter.github ? (
               <Button full link={frontmatter.github}>
@@ -42,6 +37,11 @@ export default function Template({
               </Button>
             ) : null}
             <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Column>
+          <Column large={4}>
+            <p style={{ margin: '0' }}>
+              <b>{frontmatter.date}</b>
+            </p>
           </Column>
         </Row>
       </Container>

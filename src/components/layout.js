@@ -11,13 +11,13 @@ const rowClass = css({
   width: '100%',
 })
 
-const Row = ({ ...props }) => {
+const Row = props => {
   return (
     <div className={`${rowClass} ${props.className}`}>{props.children}</div>
   )
 }
 
-const Column = ({ ...props }) => {
+const Column = props => {
   const columnClass = css({
     boxSizing: 'border-box',
     display: 'inline-flex',
@@ -31,7 +31,7 @@ const Column = ({ ...props }) => {
   )
 }
 
-const Container = ({ ...props }) => {
+const Container = props => {
   const containerClass = css({
     display: 'block',
     margin: '0 auto',
