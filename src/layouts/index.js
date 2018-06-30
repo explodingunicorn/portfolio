@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { injectGlobal } from 'emotion'
 import colors from '../styles/colors'
-import 'index.css'
+import './index.css'
 
 require('prismjs/themes/prism-tomorrow.css')
 
