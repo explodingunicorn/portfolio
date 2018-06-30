@@ -32,7 +32,7 @@ export default function Template({
         <Row>
           <Column large={8}>
             {frontmatter.github ? (
-              <Button full link={frontmatter.github}>
+              <Button full hyperLink={frontmatter.github}>
                 Check it out on Github >>
               </Button>
             ) : null}
