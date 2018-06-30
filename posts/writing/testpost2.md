@@ -6,3 +6,7 @@ type: "writing"
 ---
 
 Has anyone heard about GatsbyJS yet?Has anyone heard about GatsbyJS yet?Has anyone heard about GatsbyJS yet?Has anyone heard about GatsbyJS yet?Has anyone heard about GatsbyJS yet?Has anyone heard about GatsbyJS yet?
+
+```javascript
+var javascript = 'testing markdown'
+```

@@ -1,35 +1,52 @@
-import React from "react";
-import './post.scss';
+import React from 'react'
+import { css } from 'emotion'
+import colors from '../styles/colors'
+import Button from '../components/button'
+import { Container, Row, Column } from '../components/layout'
+
+const heroClass = css({
+  backgroundColor: colors.black,
+  color: colors.white,
+  padding: '90px 0 0 20px',
+  h1: {
+    marginBottom: '10px',
+  },
+})
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data; // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark;
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = markdownRemark
+  console.log(frontmatter)
   return (
-    <div className="post-container">
-      <div className="hero">
-        <div className="main-container">
-          <div className="col-6">
+    <div>
+      <div className={heroClass}>
+        <Container width={55}>
+          <Row>
             <h1>{frontmatter.title}</h1>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
-      <div className="post-content">
-        <div className="main-container">
-          <div className="col-2 date">
-            <div className="deco"/>
-            <p><b>{frontmatter.date}</b></p>
-          </div>
-          <div className="col-4">
-            <div
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </div>
-        </div>
-      </div>
+      <Container width={55}>
+        <Row>
+          <Column large={4}>
+            <p style={{ margin: '0' }}>
+              <b>{frontmatter.date}</b>
+            </p>
+          </Column>
+          <Column large={8}>
+            {frontmatter.github ? (
+              <Button full link={frontmatter.github}>
+                Check it out on Github >>
+              </Button>
+            ) : null}
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Column>
+        </Row>
+      </Container>
     </div>
-  );
+  )
 }
 
 export const pageQuery = graphql`
@@ -40,7 +57,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        github
       }
     }
   }
-`;
+`

@@ -7,11 +7,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/posts`,
-        name: "markdown-pages",
+        name: 'markdown-pages',
       },
     },
-    'gatsby-transformer-remark',
-    'gatsby-plugin-react-helmet', 
-    'gatsby-plugin-sass'
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-prismjs'],
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
   ],
-};
+}

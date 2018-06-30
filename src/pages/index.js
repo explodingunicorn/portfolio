@@ -1,52 +1,62 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link';
-import Background from '../components/background';
-import Excerpt from '../components/excerpt';
-import './index.scss';
+import Link from 'gatsby-link'
+import { Container, Row, Column } from '../components/layout'
+import Button from '../components/button'
+import Excerpt from '../components/excerpt'
 
 const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
-
   const Work = edges
-    .filter(edge => edge.node.frontmatter.type === "work")
-    .map(edge => <Excerpt post={edge.node}/>);
+    .filter(edge => edge.node.frontmatter.type === 'work')
+    .map(edge => <Excerpt post={edge.node} />)
 
   const Writing = edges
-    .filter(edge => edge.node.frontmatter.type === "writing")
-    .map(edge => <Excerpt className="col-3" post={edge.node}/>);
+    .filter(edge => edge.node.frontmatter.type === 'writing')
+    .map(edge => <Excerpt post={edge.node} />)
 
   return (
-    <div className="home">
-      <div className="hero">
-        <Background/>
-        <div className="main-container">
-          <div className="col-6">
-            <h1 className="large">Corey Robinson</h1>
+    <div style={{ paddingTop: '40px' }}>
+      <Container width={55}>
+        <Row>
+          <Column large={12}>
+            <h1
+              style={{
+                marginBottom: '5px',
+              }}
+            >
+              Corey Robinson
+            </h1>
             <h3>UI Developer</h3>
-          </div>
-        </div>
-      </div>
-      <div className="work section">
-        <div className="main-container">
-          <div className="col-2">
+            <p>
+              Hey, I'm Corey Robinson and this is my website. I am a Software
+              Developer for Optum Technology where I focus mostly on UI
+              development and design. The sites a little barren right now as I
+              currently have a few projects and posts in the works.
+            </p>
+          </Column>
+          <Column large={6}>
+            <Button color="black" full>
+              Contact Me
+            </Button>
+          </Column>
+          <Column large={6}>
+            <Button full>Read the Resume</Button>
+          </Column>
+        </Row>
+        <Row>
+          <Column large={12}>
             <h2>Projects</h2>
-            <div className="header-decoration"><div className="deco"/></div>
-          </div>
-          <div className="col-4 work-showcase">
             {Work}
-          </div>
-        </div>
-      </div>
-      <div className="writing section">
-        <div className="main-container">
-          <div className="col-6">
+          </Column>
+        </Row>
+        <Row>
+          <Column large={12}>
             <h2>Writing</h2>
-            <div className="header-decoration"><div className="deco"/></div>
-          </div>
-          {Writing}
-        </div>
-      </div>
+            {Writing}
+          </Column>
+        </Row>
+      </Container>
     </div>
-  );
+  )
 }
 
 export default IndexPage
@@ -68,4 +78,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
