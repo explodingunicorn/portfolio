@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
+import { css } from 'emotion'
+import colors from '../styles/colors'
 import Link from 'gatsby-link'
-import { Container, Row, Column } from '../components/layout'
+import { Row, Column } from '../components/layout'
+import SiteContainer from '../components/siteContainer'
 import Button from '../components/button'
 import Excerpt from '../components/excerpt'
+
+const heroClass = css({
+  backgroundColor: colors.black,
+  padding: '100px 0 0 0',
+  'h1, h2, h3': {
+    color: colors.white,
+  },
+})
 
 const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
   const Work = edges
@@ -14,18 +25,26 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
     .map(edge => <Excerpt post={edge.node} />)
 
   return (
-    <div style={{ paddingTop: '40px' }}>
-      <Container width={55}>
+    <div>
+      <div className={heroClass}>
+        <SiteContainer>
+          <Row>
+            <Column large={12}>
+              <h1
+                style={{
+                  marginBottom: '5px',
+                }}
+              >
+                Corey Robinson
+              </h1>
+              <h3>UI Developer</h3>
+            </Column>
+          </Row>
+        </SiteContainer>
+      </div>
+      <SiteContainer>
         <Row>
           <Column large={12}>
-            <h1
-              style={{
-                marginBottom: '5px',
-              }}
-            >
-              Corey Robinson
-            </h1>
-            <h3>UI Developer</h3>
             <p>
               Hey, I'm Corey Robinson and this is my website. I am a Software
               Developer for Optum Technology where I focus mostly on UI
@@ -59,7 +78,7 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
             {Writing}
           </Column>
         </Row>
-      </Container>
+      </SiteContainer>
     </div>
   )
 }

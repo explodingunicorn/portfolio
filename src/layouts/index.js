@@ -43,9 +43,17 @@ injectGlobal`
     letter-spacing: 2px;
   }
 
-  p {
+  p, a {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 

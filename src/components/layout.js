@@ -18,12 +18,30 @@ const Row = props => {
 }
 
 const Column = props => {
+  const getWidth = number => {
+    return `${number / 12 * 100}%`
+  }
+
   const columnClass = css({
     boxSizing: 'border-box',
     display: 'inline-flex',
     flexDirection: 'column',
     padding: '15px',
-    width: `${props.large / 12 * 100}%`,
+    width: `${getWidth(props.large)}`,
+
+    '@media (max-width: 1224px)': {
+      width: props.medium
+        ? `${getWidth(props.medium)}`
+        : `${getWidth(props.large)}`,
+    },
+
+    '@media (max-width: 768px)': {
+      width: props.small
+        ? `${getWidth(props.small)}`
+        : props.medium
+          ? `${getWidth(props.medium)}`
+          : `${getWidth(props.large)}`,
+    },
   })
 
   return (
@@ -35,7 +53,17 @@ const Container = props => {
   const containerClass = css({
     display: 'block',
     margin: '0 auto',
-    width: `${props.width}%`,
+    width: `${props.large}%`,
+
+    '@media (max-width: 1224px)': {
+      width: props.medium ? `${props.medium}%` : `${props.large}%`,
+    },
+
+    '@media (max-width: 768px)': {
+      width: props.small
+        ? `${props.small}%`
+        : props.medium ? `${props.medium}%` : `${props.large}%`,
+    },
   })
 
   return (

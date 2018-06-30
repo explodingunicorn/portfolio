@@ -1,15 +1,26 @@
 import React from 'react'
+import Link from 'gatsby-link'
 import { css } from 'emotion'
 import colors from '../styles/colors'
 import Button from '../components/button'
-import { Container, Row, Column } from '../components/layout'
+import { Row, Column } from '../components/layout'
+import SiteContainer from '../components/siteContainer'
 
 const heroClass = css({
   backgroundColor: colors.black,
   color: colors.white,
-  padding: '90px 0 0 20px',
+  padding: '20px 0 0 10px',
   h1: {
-    marginBottom: '10px',
+    marginBottom: '0px',
+  },
+  a: {
+    marginBottom: '110px',
+  },
+})
+
+const postClass = css({
+  p: {
+    margin: '0 0 30px 0',
   },
 })
 
@@ -18,33 +29,47 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
-  console.log(frontmatter)
   return (
-    <div>
+    <div className={postClass}>
       <div className={heroClass}>
-        <Container width={55}>
+        <SiteContainer>
           <Row>
-            <h1>{frontmatter.title}</h1>
+            <Column large={12}>
+              <Link
+                to="/"
+                style={{
+                  color: colors.white,
+                  display: 'block',
+                  fontSize: '24px',
+                }}
+              >
+                &lt;&lt; Back Home
+              </Link>
+              <h1>{frontmatter.title}</h1>
+            </Column>
           </Row>
-        </Container>
+        </SiteContainer>
       </div>
-      <Container width={55}>
+      <SiteContainer>
         <Row>
-          <Column large={8}>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </Column>
-          <Column large={4}>
-            <p style={{ margin: '0' }}>
+          <Column large={4} small={12}>
+            <p style={{ marginTop: '0' }}>
               <b>{frontmatter.date}</b>
             </p>
             {frontmatter.github ? (
-              <Button full hyperLink={frontmatter.github}>
+              <Button color="black" full hyperLink={frontmatter.github}>
                 Check it out on Github
               </Button>
             ) : null}
+            <Button full hyperLink="mailto:c7o7r7e7y@gmail.com">
+              Contact Me
+            </Button>
+          </Column>
+          <Column large={8} small={12}>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </Column>
         </Row>
-      </Container>
+      </SiteContainer>
     </div>
   )
 }
