@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { injectGlobal } from 'emotion'
 import colors from '../styles/colors'
+import 'index.css'
 
 require('prismjs/themes/prism-tomorrow.css')
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans+Condensed:300,400,600i,700');
-
   body {
     font-family: 'IBM Plex Sans Condensed', sans-serif !important;
     margin: 0;
