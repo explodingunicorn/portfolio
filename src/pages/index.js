@@ -39,7 +39,10 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
             </Button>
           </Column>
           <Column large={6}>
-            <Button full hyperLink="files/Resume.pdf">
+            <Button
+              full
+              hyperLink="https://drive.google.com/file/d/1aXP3FIEzrNDE0GSmGS13bB2pkC43gjfz/view?usp=sharing"
+            >
               Read the Resume
             </Button>
           </Column>
