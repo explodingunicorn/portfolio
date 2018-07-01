@@ -18,11 +18,11 @@ const heroClass = css({
 const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
   const Work = edges
     .filter(edge => edge.node.frontmatter.type === 'work')
-    .map(edge => <Excerpt post={edge.node} />)
+    .map(edge => <Excerpt key={edge.node.frontmatter.title} post={edge.node} />)
 
   const Writing = edges
     .filter(edge => edge.node.frontmatter.type === 'writing')
-    .map(edge => <Excerpt post={edge.node} />)
+    .map(edge => <Excerpt key={edge.node.frontmatter.title} post={edge.node} />)
 
   return (
     <div>
