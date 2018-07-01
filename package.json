@@ -6,8 +6,10 @@
   "dependencies": {
     "d3": "^5.0.0",
     "emotion": "^9.2.4",
+    "emotion-server": "^9.2.4",
     "gatsby": "^1.9.236",
     "gatsby-link": "^1.6.39",
+    "gatsby-plugin-emotion": "^1.1.17",
     "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-sass": "^1.0.23",
@@ -15,6 +17,7 @@
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.41",
     "prismjs": "^1.14.0",
+    "react-emotion": "^9.2.4",
     "react-helmet": "^5.2.0",
     "react-whs": "^0.1.8",
     "three": "^0.91.0",

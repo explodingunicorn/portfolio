@@ -28,6 +28,12 @@ module.exports = {
         respectDNT: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
   ],
