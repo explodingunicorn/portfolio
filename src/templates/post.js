@@ -55,7 +55,15 @@ export default function Template({
           <Column large={4} small={12}>
             <p style={{ marginTop: '0' }}>
               <b>{frontmatter.date}</b>
+              {frontmatter.updated ? (
+                <b>UPDATED: {frontmatter.updated}</b>
+              ) : null}
             </p>
+            {frontmatter.projectLink ? (
+              <Button color="purple" full hyperLink={frontmatter.projectLink}>
+                Try out the app
+              </Button>
+            ) : null}
             {frontmatter.github ? (
               <Button color="black" full hyperLink={frontmatter.github}>
                 Check it out on Github

@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { css } from 'emotion'
 import colors from '../styles/colors'
-import Link from 'gatsby-link'
 import { Row, Column } from '../components/layout'
 import SiteContainer from '../components/siteContainer'
 import Button from '../components/button'

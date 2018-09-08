@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { css } from 'emotion'
 import colors from '../styles/colors'
 import Link from 'gatsby-link'
 
 const Button = props => {
   const buttonClass = css({
-    backgroundColor: props.color === 'black' ? colors.black : 'transparent',
+    backgroundColor: props.color ? colors[props.color] : 'transparent',
     border: `1px solid ${colors.black}`,
     boxSizing: 'border-box',
     color: props.color === 'black' ? colors.white : colors.black,
