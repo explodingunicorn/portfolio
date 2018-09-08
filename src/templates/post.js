@@ -29,6 +29,7 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
+  console.log(frontmatter);
   return (
     <div className={postClass}>
       <div className={heroClass}>
@@ -55,10 +56,11 @@ export default function Template({
           <Column large={4} small={12}>
             <p style={{ marginTop: '0' }}>
               <b>{frontmatter.date}</b>
-              {frontmatter.updated ? (
-                <b>UPDATED: {frontmatter.updated}</b>
-              ) : null}
             </p>
+            {frontmatter.update ? (
+              <p style={{ marginTop: '0' }}>
+                <b>UPDATED: {frontmatter.update}</b>
+              </p>) : null}
             {frontmatter.projectLink ? (
               <Button color="purple" full hyperLink={frontmatter.projectLink}>
                 Try out the app
@@ -88,8 +90,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        update(formatString: "MMMM DD, YYYY")
         path
         title
+        projectLink
         github
       }
     }
