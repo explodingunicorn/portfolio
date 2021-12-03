@@ -9,13 +9,14 @@ import SiteContainer from '../components/siteContainer'
 
 const heroClass = css({
   backgroundColor: colors.black,
-  color: colors.white,
   padding: '20px 0 0 10px',
   h1: {
     marginBottom: '0px',
+    color: colors.white,
   },
   a: {
     marginBottom: '110px',
+    color: colors.white,
   },
 })
 
@@ -30,7 +31,6 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
-  console.log(frontmatter)
   return (
     <div css={postClass}>
       <div css={heroClass}>

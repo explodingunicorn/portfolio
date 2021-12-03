@@ -61,6 +61,7 @@ const globalStyles = css`
   }
 
   a {
+    color: ${colors.green};
     text-decoration: none;
 
     &:hover {

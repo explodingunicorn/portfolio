@@ -8,7 +8,9 @@ const Button = props => {
     backgroundColor: props.color ? colors[props.color] : 'transparent',
     border: `1px solid ${colors.black}`,
     boxSizing: 'border-box',
-    color: props.color === 'black' ? colors.white : colors.black,
+    color: ['black', 'purple', 'green'].includes(props.color)
+      ? colors.white
+      : colors.black,
     fontFamily: 'IBM Plex Mono',
     fontWeight: 400,
     padding: '15px',
