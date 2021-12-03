@@ -1,5 +1,6 @@
 import React from 'react'
-import { css } from 'emotion'
+import { graphql } from 'gatsby'
+import { css } from '@emotion/css'
 import colors from '../styles/colors'
 import { Row, Column } from '../components/layout'
 import SiteContainer from '../components/siteContainer'
@@ -14,7 +15,11 @@ const heroClass = css({
   },
 })
 
-const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
   const Work = edges
     .filter(edge => edge.node.frontmatter.type === 'work')
     .map(edge => <Excerpt key={edge.node.frontmatter.title} post={edge.node} />)
@@ -45,10 +50,10 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
         <Row>
           <Column large={12}>
             <p>
-              Hey, I'm Corey Robinson and this is my website. I am a Software
-              Developer for Optum Technology where I focus mostly on UI
-              development and design. The sites a little barren right now as I
-              currently have a few projects and posts in the works.
+              Hey, I'm Corey Robinson and this is my website. I am a Senior
+              Software Engineer at Pegasystems where I work on the Cosmos design
+              system. The sites a little barren right now as I currently have a
+              few projects and posts in the works.
             </p>
           </Column>
           <Column large={6}>
@@ -57,10 +62,8 @@ const IndexPage = ({ data: { allMarkdownRemark: { edges } } }) => {
             </Button>
           </Column>
           <Column large={6}>
-            <Button
-              full
-            >
-              Read the Resume (Updating)
+            <Button full hyperLink="/resume.pdf">
+              Read the Resume
             </Button>
           </Column>
         </Row>

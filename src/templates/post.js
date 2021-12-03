@@ -1,6 +1,7 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 import colors from '../styles/colors'
 import Button from '../components/button'
 import { Row, Column } from '../components/layout'
@@ -29,7 +30,7 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
-  console.log(frontmatter);
+  console.log(frontmatter)
   return (
     <div className={postClass}>
       <div className={heroClass}>
@@ -57,10 +58,6 @@ export default function Template({
             <p style={{ marginTop: '0' }}>
               <b>{frontmatter.date}</b>
             </p>
-            {frontmatter.update ? (
-              <p style={{ marginTop: '0' }}>
-                <b>UPDATED: {frontmatter.update}</b>
-              </p>) : null}
             {frontmatter.projectLink ? (
               <Button color="purple" full hyperLink={frontmatter.projectLink}>
                 Try out the app
@@ -90,7 +87,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        update(formatString: "MMMM DD, YYYY")
         path
         title
         projectLink

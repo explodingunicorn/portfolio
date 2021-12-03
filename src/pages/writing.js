@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React from 'react'
+import { graphql } from 'gatsby'
 import Excerpt from '../components/excerpt'
 
-const WritingPage = ({ data: { allMarkdownRemark: { edges } } }) => {
+const WritingPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
   const Writing = edges
     .filter(edge => edge.node.frontmatter.type === 'writing')
     .map(edge => <Excerpt className="col-3" post={edge.node} />)

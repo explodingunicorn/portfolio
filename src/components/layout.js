@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/css'
 
 const rowClass = css({
   boxSizing: 'border-box',
@@ -19,7 +19,7 @@ const Row = props => {
 
 const Column = props => {
   const getWidth = number => {
-    return `${number / 12 * 100}%`
+    return `${(number / 12) * 100}%`
   }
 
   const columnClass = css({
@@ -39,8 +39,8 @@ const Column = props => {
       width: props.small
         ? `${getWidth(props.small)}`
         : props.medium
-          ? `${getWidth(props.medium)}`
-          : `${getWidth(props.large)}`,
+        ? `${getWidth(props.medium)}`
+        : `${getWidth(props.large)}`,
     },
   })
 
@@ -62,7 +62,9 @@ const Container = props => {
     '@media (max-width: 768px)': {
       width: props.small
         ? `${props.small}%`
-        : props.medium ? `${props.medium}%` : `${props.large}%`,
+        : props.medium
+        ? `${props.medium}%`
+        : `${props.large}%`,
     },
   })
 
