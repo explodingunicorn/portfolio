@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import colors from '../styles/colors'
 import { Row, Column } from '../components/layout'
 import SiteContainer from '../components/siteContainer'
@@ -30,7 +30,7 @@ const IndexPage = ({
 
   return (
     <div>
-      <div className={heroClass}>
+      <div css={heroClass}>
         <SiteContainer>
           <Row>
             <Column large={12}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import colors from '../styles/colors'
 import Button from './button'
 
@@ -15,7 +15,7 @@ const excerptClass = css({
 
 const Excerpt = ({ post }) => {
   return (
-    <div className={excerptClass}>
+    <div css={excerptClass}>
       <h3>{post.frontmatter.title}</h3>
       <p>{post.excerpt}</p>
       <Button color="black" full link={post.frontmatter.path}>

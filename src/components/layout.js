@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 
 const rowClass = css({
   boxSizing: 'border-box',
@@ -45,7 +45,9 @@ const Column = props => {
   })
 
   return (
-    <div className={`${columnClass} ${props.className}`}>{props.children}</div>
+    <div css={columnClass} className={props.className}>
+      {props.children}
+    </div>
   )
 }
 
@@ -69,7 +71,7 @@ const Container = props => {
   })
 
   return (
-    <div className={`${containerClass} ${props.className}`}>
+    <div css={containerClass} className={props.className}>
       {props.children}
     </div>
   )

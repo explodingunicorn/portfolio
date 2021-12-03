@@ -1,24 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { injectGlobal } from '@emotion/css'
 import colors from '../styles/colors'
+import { Global, css } from '@emotion/react'
 
 require('prismjs/themes/prism-tomorrow.css')
 
-injectGlobal`
+const globalStyles = css`
   body {
     font-family: 'IBM Plex Sans Condensed', sans-serif !important;
     margin: 0;
     padding: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
   }
 
-  h1, h2, h3, h4, h5, h6, p, a {
-    color: $black;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a {
+    color: ${colors.black};
   }
 
   h1 {
@@ -32,7 +44,7 @@ injectGlobal`
     font-weight: 600;
     font-size: 3.5em;
     font-style: italic;
-    margin-bottom: .3em;
+    margin-bottom: 0.3em;
     text-shadow: 2px 2px ${colors.lightGray};
   }
 
@@ -42,7 +54,8 @@ injectGlobal`
     letter-spacing: 2px;
   }
 
-  p, a {
+  p,
+  a {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 18px;
   }
@@ -58,6 +71,7 @@ injectGlobal`
 
 const TemplateWrapper = ({ children }) => (
   <div>
+    <Global styles={globalStyles} />
     <Helmet
       title="C.Robinson - UI"
       meta={[

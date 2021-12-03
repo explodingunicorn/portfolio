@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import colors from '../styles/colors'
 import Button from '../components/button'
 import { Row, Column } from '../components/layout'
@@ -32,8 +32,8 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   console.log(frontmatter)
   return (
-    <div className={postClass}>
-      <div className={heroClass}>
+    <div css={postClass}>
+      <div css={heroClass}>
         <SiteContainer>
           <Row>
             <Column large={12}>

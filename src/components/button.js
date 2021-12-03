@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/css'
+import { css } from '@emotion/react'
 import colors from '../styles/colors'
 import Link from 'gatsby-link'
 
@@ -22,7 +22,7 @@ const Button = props => {
   const button = (
     <button
       onClick={() => (props.onClick ? props.onClick() : null)}
-      className={buttonClass}
+      css={buttonClass}
     >
       {props.children} {'>>'}
     </button>
